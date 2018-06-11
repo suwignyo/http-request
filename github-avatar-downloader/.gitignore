@@ -68,3 +68,6 @@ typings/
 
 #github token
 .secrets.js
+
+#env file
+.env
