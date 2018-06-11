@@ -1,5 +1,4 @@
 var request = require('request');
-var token = require('./secrets');
 require('dotenv').config();
 var fs = require('fs');
 
