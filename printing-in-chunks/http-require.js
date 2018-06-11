@@ -9,5 +9,5 @@ var requestOptions = {
 console.log(getHTML(requestOptions, printHTML));
 
 function printHTML (html) {
-  console.log(html);
+  console.log(typeof(html));
 }
