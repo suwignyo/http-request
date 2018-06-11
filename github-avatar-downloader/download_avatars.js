@@ -6,6 +6,10 @@ var owner = process.argv[2];
 var repo = process.argv[3];
 
 function getRepoContributors(repoOwner, repoName, cb) {
+  if (repoOwner == null || repoName == null){
+    return null;
+  }
+  else{
   var options = {
     url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
     headers: {
@@ -19,6 +23,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
     cb(err, obj);
   });
 }
+}
 
 function downloadImageByURL(url, filePath) {
   request.get(url)
@@ -30,6 +35,7 @@ function downloadImageByURL(url, filePath) {
      console.log('Response content-type: ', response.headers['content-type']);
    })
    .pipe(fs.createWriteStream(filePath));
+
 }
 
 console.log('Welcome to the GitHub Avatar Downloader!');
