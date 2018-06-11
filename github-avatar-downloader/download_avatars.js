@@ -2,6 +2,9 @@ var request = require('request');
 var token = require('./secrets');
 var fs = require('fs');
 
+var owner = process.argv[2];
+var repo = process.argv[3];
+
 function getRepoContributors(repoOwner, repoName, cb) {
   var options = {
     url: "https://api.github.com/repos/" + repoOwner + "/" + repoName + "/contributors",
@@ -12,7 +15,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
   };
   request(options, function(err, res, body) {
     var obj = JSON.parse(body);
-    console.log(obj);
+    // console.log(obj);
     cb(err, obj);
   });
 }
@@ -30,7 +33,7 @@ function downloadImageByURL(url, filePath) {
 }
 
 console.log('Welcome to the GitHub Avatar Downloader!');
-console.log(getRepoContributors("jquery", "jquery", function(err, result) {
+console.log(getRepoContributors(owner, repo, function(err, result) {
   console.log("Errors:", err);
   // var arr = []
   for (i = 0; i < result.length; i++){
