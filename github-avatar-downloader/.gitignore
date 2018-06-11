@@ -67,7 +67,7 @@ typings/
 .serverless
 
 #github token
-.secrets.js
+secrets.js
 
 #env file
 .env
